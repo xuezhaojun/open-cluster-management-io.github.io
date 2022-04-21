@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"/>
+  <link rel="stylesheet" href="/main.css"/>
+  <link rel="shortcut icon" type="image/svg" href="/ocm.svg">
+  <title>Open Cluster Management</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1PXKZXT157"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1PXKZXT157');
+  </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+
+
+
+    
+
+
+<input id="current-lang" type="hidden" value="zh">
+
+<header class="navbar navbar-expand-md navbar-dark bd-navbar">
+  <nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top">
+    <div class="container-fluid flex-wrap flex-md-nowrap">
+      <a href="/zh/" class="navbar-brand">
+        <img src="/ocm.svg" alt="" width="30" height="24" class="align-text-top">
+        Open Cluster Management
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item pe-2">
+            <a href="/zh/community" class="nav-link text-light">社区</a>
+          </li>
+          <li class="nav-item pe-2">
+            <a href="/zh/contribute" class="nav-link text-light">贡献</a>
+          </li>
+          <li class="nav-item pe-2">
+            <a href="/zh/concepts" class="nav-link text-light">文档</a>
+          </li>
+          <li class="nav-item dropdown pe-2">
+            
+            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">中文</a>
+            
+
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              
+              <li><a class="dropdown-item" href="#" id="to-en">English</a></li>
+              
+            </ul>
+          </li>
+          <li class="nav-item pe-2">
+            <a class="nav-link text-light" href="https://www.youtube.com/channel/UC7xxOh2jBM5Jfwt3fsBzOZw" target="_blank">
+                <i class="bi bi-youtube"></i>
+            </a>
+          </li>
+          <li class="nav-item pe-2">
+            <a class="nav-link text-light" href="https://github.com/open-cluster-management-io" target="_blank">
+              <i class="bi bi-github"></i>
+            </a>
+          </li>
+          <li class="nav-item pe-2">
+            <a class="nav-link text-light" href="https://kubernetes.slack.com/?redir=%2Farchives%2FC01GE7YSUUF" target="_blank">
+              <i class="bi bi-slack"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+</div>
+        <div class="row subject-padding">
+            <div class="col-2 col-md-3 padding-none sidebar-bgc">
+
+
+
+    
+
+
+<div class="sidebar-toggle sidebar-toggle-sm">
+    <button type="button" id="sidebarToggle" class="btn btn-info">
+        <i class="bi bi-list"></i>
+    </button>
+</div>
+<nav id="sidebar" class="sidebar-hide-sm">
+    <ul class="components">
+        <li id="concepts">
+            <a class="navlink" href="/zh/concepts">概念</a>
+            <ul class="collapse">
+                <li>
+                    <a class="navlink" href="/zh/concepts/architecture">架构</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/concepts/managedcluster">托管集群</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/concepts/manifestwork">资源下发</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/concepts/managedclusterset">托管集群分组</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/concepts/placement">匹配路由</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/concepts/addon">自定义插件</a>
+                </li>
+            </ul>
+        </li>
+        <li id="getting-started">
+            <a class="navlink" href="/zh/getting-started">安装</a>
+            <ul class="collapse">
+                <li>
+                    <a class="navlink" href="/zh/getting-started/quick-start">快速开始</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/getting-started/core">核心组件</a>
+                    <ul class="collapse">
+                        <li>
+                            <a class="navlink" href="/zh/getting-started/core/cluster-manager">中枢控制器</a>
+                        </li>
+                        <li>
+                            <a class="navlink" href="/zh/getting-started/core/register-cluster">集群代理控制器</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/getting-started/integration">插件和集成</a>
+                    <ul class="collapse">
+                        <li>
+                            <a class="navlink" href="/zh/getting-started/integration/app-lifecycle">应用生命周期管理</a>
+                        </li>
+                        <li>
+                            <a class="navlink" href="/zh/getting-started/integration/cluster-proxy">多集群网络隧道</a>
+                        </li>
+                        <li>
+                            <a class="navlink" href="/zh/getting-started/integration/policy-framework">Policy框架</a>
+                        </li>
+                        <li>
+                            <a class="navlink" href="/zh/getting-started/integration/policy-controllers">Policy控制器</a>
+                        </li>
+                        <li>
+                            <a class="navlink" href="/zh/getting-started/integration/managed-serviceaccount">托管多集群ServiceAccount</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/getting-started/administration">运维管理</a>
+                    <ul class="collapse">
+                        <li>
+                            <a class="navlink" href="/zh/getting-started/administration/upgrading">升级版本</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li id="scenarios">
+            <a class="navlink" href="/zh/scenarios">应用场景</a>
+            <ul class="collapse">
+                <li>
+                    <a class="navlink" href="/zh/scenarios/deploy-kubernetes-resources">部署Kubernetes资源</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/scenarios/extending-managed-clusters">扩展集群模型</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/scenarios/pushing-kube-api-requests">向托管集群推送Kube API请求</a>
+                </li>
+            </ul>
+        </li>
+        <li id="community">
+            <a class="navlink" href="/zh/community">社区</a>
+            <ul class="collapse">
+                <li>
+                    <a class="navlink" href="/zh/community/releases">发行版本</a>
+                </li>
+                <li >
+                    <a class="navlink" href="/zh/community/roadmap">社区规划</a>
+                </li>
+            </ul>
+        </li>
+        <li id="contribute">
+            <a class="navlink" href="/zh/contribute">贡献</a>
+        </li>
+        <li id="blog">
+            <a class="navlink" href="/zh/blog">博客</a>
+        </li>
+        <li style="padding-top: 10px; border-top: 2px solid #448a78;">
+            <a class="navlink resource" href="https://github.com/open-cluster-management-io" target="_blank"><i class="bi bi-github"></i><span style="padding-left: 10px;">GitHub</span></a>
+        </li>
+        <li>
+            <a class="navlink resource" href="https://kubernetes.slack.com/archives/C01GE7YSUUF" target="_blank"><i class="bi bi-slack"></i><span style="padding-left: 10px;">Slack</span></a>
+        </li>
+        <li>
+            <a class="navlink resource" href="https://www.youtube.com/channel/UC7xxOh2jBM5Jfwt3fsBzOZw" target="_blank"><i class="bi bi-youtube"></i><span style="padding-left: 10px;">YouTube</span></a>
+        </li>
+        <li>
+            <a class="navlink resource" href="https://groups.google.com/g/open-cluster-management" target="_blank"><i class="bi bi-envelope-fill"></i><span style="padding-left: 10px;">Mailing group</span></a>
+        </li>
+        <li>
+            <a class="navlink resource" href="https://calendar.google.com/calendar/u/0/embed?src=openclustermanagement@gmail.com" target="_blank"><i class="bi bi-calendar-event-fill"></i><span style="padding-left: 10px;">Community meetings</span></a>
+        </li>
+    </ul>
+</nav>
+<script type="text/javascript" src="/sidebar.js"></script>
+</div>
+            <div class="col-10 col-md-9 padding-none">
+<div id="content">
+    <h1>匹配路由</h1>
+    <!-- spellchecker-disable -->
+
+
+
+  <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents"><ul>
+        <li><a href="#overall">Overall</a></li>
+        <li><a href="#select-clusters-in-managedclusterset">Select clusters in ManagedClusterSet</a>
+          <ul>
+            <li><a href="#predicates">Predicates</a>
+              <ul>
+                <li><a href="#labelclaim-selection">Label/Claim selection</a></li>
+                <li><a href="#taintstolerations">Taints/Tolerations</a></li>
+              </ul>
+            </li>
+            <li><a href="#prioritizers">Prioritizers</a>
+              <ul>
+                <li><a href="#score-based-prioritizer">Score-based prioritizer</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#extensible-scheduling">Extensible scheduling</a></li>
+        <li><a href="#future-work">Future work</a></li>
+      </ul></nav><hr></div>
+
+
+<!-- spellchecker-enable -->
+<p><strong>API-CHANGE NOTE</strong>:
+<code>Placement</code> and <code>PlacementDecision</code> API is upgraded from v1alpha1 to v1beta1,
+v1alpha1 will be deprecated in OCM v0.7.0 and planned to be removed in OCM
+v0.8.0. The field <code>spec.prioritizerPolicy.configurations.name</code> in <code>Placement</code>
+API v1alpha1 is removed and replaced by
+<code>spec.prioritizerPolicy.configurations.scoreCoordinate.builtIn</code> in v1beta1.</p>
+<h2 id="overall">Overall</h2>
+<p><code>Placement</code> concept is used to dynamically select a set of managed clusters in
+one or multiple <a href="../managedclusterset">ManagedClusterSet</a> so that higher level
+users can either replicate Kubernetes resources to the member clusters or run
+their advanced workload i.e. <strong>multi-cluster scheduling</strong>.</p>
+<p>The &ldquo;input&rdquo; and &ldquo;output&rdquo; of the scheduling process are decoupled into two
+separated Kubernetes API <code>Placement</code> and <code>PlacementDecision</code>. As is shown in
+the following picture, we prescribe the scheduling policy in the spec of
+<code>Placement</code> API and the placement controller in the hub will help us to
+dynamically select a slice of managed clusters from the given cluster sets.</p>
+<p>Note that the scheduling result in the <code>PlacementDecision</code> API is designed to
+be paginated with its page index as the name&rsquo;s suffix to avoid &ldquo;too large
+object&rdquo; issue from the underlying Kubernetes API framework.</p>
+<div style="text-align: center; padding: 20px;">
+   <img src="/placement-explain.png" alt="Placement" style="margin: 0 auto; width: 60%">
+</div>
+<p>Following the architecture of Kubernetes&rsquo; original scheduling framework, the
+multi-cluster scheduling is logically divided into two phases internally:</p>
+<ul>
+<li><strong>Predicate</strong>: Hard requirements for the selected clusters.</li>
+<li><strong>Prioritize</strong>: Rank the clusters by the soft requirements and select a subset
+among them.</li>
+</ul>
+<h2 id="select-clusters-in-managedclusterset">Select clusters in ManagedClusterSet</h2>
+<p>By following <a href="../managedclusterset">the previous section</a> about
+<code>ManagedClusterSet</code>, now we&rsquo;re supposed to have one or multiple valid cluster
+sets in the hub clusters. Then we can move on and create a placement in the
+&ldquo;workspace namespace&rdquo; by specifying <code>predicates</code> and <code>prioritizers</code> in the
+<code>Placement</code> API to define our own multi-cluster scheduling policy.</p>
+<h3 id="predicates">Predicates</h3>
+<h4 id="labelclaim-selection">Label/Claim selection</h4>
+<p>In the <code>predicates</code> section, you can select clusters by labels or <code>clusterClaims</code>.
+For instance, you can select 3 clusters with labels <code>purpose=test</code> and
+clusterClaim <code>platform.open-cluster-management.io=aws</code> as seen in the following
+examples:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1beta1
+<span style="color:#66d9ef">kind</span>: Placement
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: placement1
+  <span style="color:#66d9ef">namespace</span>: default
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">numberOfClusters</span>: <span style="color:#ae81ff">3</span>
+  <span style="color:#66d9ef">clusterSets</span>:
+    - prod
+  <span style="color:#66d9ef">predicates</span>:
+    - <span style="color:#66d9ef">requiredClusterSelector</span>:
+        <span style="color:#66d9ef">labelSelector</span>:
+          <span style="color:#66d9ef">matchLabels</span>:
+            <span style="color:#66d9ef">purpose</span>: test
+        <span style="color:#66d9ef">claimSelector</span>:
+          <span style="color:#66d9ef">matchExpressions</span>:
+            - <span style="color:#66d9ef">key</span>: platform.open-cluster-management.io
+              <span style="color:#66d9ef">operator</span>: In
+              <span style="color:#66d9ef">values</span>:
+                - aws
+</code></pre></div><p>Note that the distinction between label-selecting and claim-selecting is
+elaborated in <a href="https://open-cluster-management.io/scenarios/extending-managed-clusters/">this page</a>
+about how to extend attributes for the managed clusters.</p>
+<h4 id="taintstolerations">Taints/Tolerations</h4>
+<p>To support filtering unhealthy/not-reporting clusters and keep workloads from
+being placed in unhealthy or unreachable clusters, we introduce the similar
+concept of taint/toleration in Kubernetes. It also allows user to add a
+customized taint to deselect a cluster from placement. This is useful when the
+user wants to set a cluster to maintenance mode and evict workload from this
+cluster.</p>
+<p>In OCM, Taints and Tolerations work together to allow users to control the
+selection of managed clusters more flexibly.</p>
+<p><a href="../managedcluster/#cluster-taints-and-tolerations">Taints</a> are properties of
+ManagedClusters, they allow a Placement to repel a set of ManagedClusters in
+predicates stage.</p>
+<p>Tolerations are applied to Placements, and allow Placements to select
+ManagedClusters with matching taints. In <code>tolerations</code> section, it includes the
+following fields:</p>
+<ul>
+<li><strong>Key</strong> (optional). Key is the taint key that the toleration applies to.</li>
+<li><strong>Value</strong> (optional). Value is the taint value the toleration matches to.</li>
+<li><strong>Operator</strong> (optional). Operator represents a key&rsquo;s relationship to the
+value. Valid operators are <code>Exists</code> and <code>Equal</code>. Defaults to <code>Equal</code>. A
+toleration &ldquo;matches&rdquo; a taint if the keys are the same and the effects are the
+same, and the operator is:
+<ul>
+<li><code>Equal</code>. The operator is Equal and the values are equal.</li>
+<li><code>Exists</code>. Exists is equivalent to wildcard for value, so that a placement
+can tolerate all taints of a particular category.</li>
+</ul>
+</li>
+<li><strong>Effect</strong> (optional). Effect indicates the taint effect to match. Empty means
+match all taint effects. When specified, allowed values are <code>NoSelect</code>,
+<code>PreferNoSelect</code> and <code>NoSelectIfNew</code>. (<code>PreferNoSelect</code> is not implemented yet,
+currently clusters with effect <code>PreferNoSelect</code> will always be selected.)</li>
+<li><strong>TolerationSeconds</strong> (optional). TolerationSeconds represents the period of
+time the toleration (which must be of effect <code>NoSelect</code>/<code>PreferNoSelect</code>,
+otherwise this field is ignored) tolerates the taint. The default value is nil,
+which indicates it tolerates the taint forever. The start time of counting the
+TolerationSeconds should be the <code>TimeAdded</code> in Taint, not the cluster scheduled
+time or <code>TolerationSeconds</code> added time.</li>
+</ul>
+<p>The following example shows how to tolerate clusters with taints.</p>
+<ul>
+<li>Tolerate clusters with taint</li>
+</ul>
+<p>Suppose your managed cluster has taint added as below,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1
+<span style="color:#66d9ef">kind</span>: ManagedCluster
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: cluster1
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">hubAcceptsClient</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">taints</span>:
+    - <span style="color:#66d9ef">effect</span>: NoSelect
+      <span style="color:#66d9ef">key</span>: gpu
+      <span style="color:#66d9ef">value</span>: <span style="color:#e6db74">&#34;true&#34;</span>
+      <span style="color:#66d9ef">timeAdded</span>: <span style="color:#e6db74">&#39;2022-02-21T08:11:06Z&#39;</span>
+</code></pre></div><p>By default, the placement won’t select this cluster unless you define
+tolerations,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1beta1
+<span style="color:#66d9ef">kind</span>: Placement
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: placement1
+  <span style="color:#66d9ef">namespace</span>: default
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">tolerations</span>:
+    - <span style="color:#66d9ef">key</span>: gpu
+      <span style="color:#66d9ef">value</span>: <span style="color:#e6db74">&#34;true&#34;</span>
+      <span style="color:#66d9ef">operator</span>: Equal
+</code></pre></div><p>With the above tolerations defined, cluster1 could be selected by placement
+because of the <code>key: gpu</code> and <code>value: &quot;true&quot;</code> match.</p>
+<ul>
+<li>Tolerate clusters with taint for a period of time</li>
+</ul>
+<p><code>TolerationSeconds</code> represents the period of time the toleration tolerates the
+taint. It could be used for the case like, when a managed cluster gets offline,
+users can make applications deployed on this cluster to be transferred to
+another available managed cluster after a tolerated time.</p>
+<p>For example, suppose the managed cluster becomes unreachable,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1
+<span style="color:#66d9ef">kind</span>: ManagedCluster
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: cluster1
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">hubAcceptsClient</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">taints</span>:
+    - <span style="color:#66d9ef">effect</span>: NoSelect
+      <span style="color:#66d9ef">key</span>: cluster.open-cluster-management.io/unreachable
+      <span style="color:#66d9ef">timeAdded</span>: <span style="color:#e6db74">&#39;2022-02-21T08:11:06Z&#39;</span>
+</code></pre></div><p>If define a placement with TolerationSeconds as below, then the workload will
+transferred to another available managed cluster after 5 minutes.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1alpha1
+<span style="color:#66d9ef">kind</span>: Placement
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: demo4
+  <span style="color:#66d9ef">namespace</span>: demo1
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">tolerations</span>:
+    - <span style="color:#66d9ef">key</span>: cluster.open-cluster-management.io/unreachable
+      <span style="color:#66d9ef">operator</span>: Exists
+      <span style="color:#66d9ef">tolerationSeconds</span>: <span style="color:#ae81ff">300</span>
+</code></pre></div><h3 id="prioritizers">Prioritizers</h3>
+<h4 id="score-based-prioritizer">Score-based prioritizer</h4>
+<p>In <code>prioritizerPolicy</code> section, you can define the policy of prioritizers.
+For instance, you can select 2 clusters with the largest memory available and
+the largest addon score cpuratio, and pin the placementdecisions as seen in the
+following examples.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1beta1
+<span style="color:#66d9ef">kind</span>: Placement
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: placement1
+  <span style="color:#66d9ef">namespace</span>: default
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">numberOfClusters</span>: <span style="color:#ae81ff">2</span>
+  <span style="color:#66d9ef">prioritizerPolicy</span>:
+    <span style="color:#66d9ef">mode</span>: Exact
+    <span style="color:#66d9ef">configurations</span>:
+      - <span style="color:#66d9ef">scoreCoordinate</span>:
+          <span style="color:#66d9ef">builtIn</span>: ResourceAllocatableMemory
+      - <span style="color:#66d9ef">scoreCoordinate</span>:
+          <span style="color:#66d9ef">builtIn</span>: Steady
+        <span style="color:#66d9ef">weight</span>: <span style="color:#ae81ff">3</span>
+      - <span style="color:#66d9ef">scoreCoordinate</span>:
+          <span style="color:#66d9ef">type</span>: AddOn
+          <span style="color:#66d9ef">addOn</span>:
+            <span style="color:#66d9ef">resourceName</span>: default
+            <span style="color:#66d9ef">scoreName</span>: cpuratio
+</code></pre></div><ul>
+<li><code>mode</code> is either <code>Exact</code>, <code>Additive</code>, <code>&quot;&quot;</code> where <code>&quot;&quot;</code> is Additive by default.
+<ul>
+<li>In <code>Additive</code> mode, any prioritizer not explicitly enumerated is enabled
+in its default Configurations, in which Steady and Balance prioritizers have
+the weight of 1 while other prioritizers have the weight of 0. Additive
+doesn&rsquo;t require configuring all prioritizers. The default Configurations may
+change in the future, and additional prioritization will happen.</li>
+<li>In <code>Exact</code> mode, any prioritizer not explicitly enumerated is weighted as
+zero. Exact requires knowing the full set of prioritizers you want, but
+avoids behavior changes between releases.</li>
+</ul>
+</li>
+<li><code>configurations</code> represents the configuration of prioritizers.
+<ul>
+<li><code>scoreCoordinate</code> represents the configuration of the prioritizer and
+score source.
+<ul>
+<li><code>type</code> defines the type of the prioritizer score.
+Type is either &ldquo;BuiltIn&rdquo;, &ldquo;AddOn&rdquo; or &ldquo;&quot;, where &quot;&rdquo; is &ldquo;BuiltIn&rdquo; by
+default.
+When the type is &ldquo;BuiltIn&rdquo;, a BuiltIn prioritizer name must be
+specified.
+When the type is &ldquo;AddOn&rdquo;, need to configure the score source in AddOn.</li>
+<li><code>builtIn</code> defines the name of a BuiltIn prioritizer. Below are the
+valid BuiltIn prioritizer names.
+<ul>
+<li>Balance: balance the decisions among the clusters.</li>
+<li>Steady: ensure the existing decision is stabilized.</li>
+<li>ResourceAllocatableCPU &amp; ResourceAllocatableMemory: sort clusters
+based on the allocatable.</li>
+</ul>
+</li>
+<li><code>addOn</code> defines the resource name and score name.
+<code>AddOnPlacementScore</code> is introduced to describe addon scores, go into
+the <a href="#extensible-scheduling">Extensible scheduling</a> section to learn
+more about it.
+<ul>
+<li><code>resourceName</code> defines the resource name of the
+<code>AddOnPlacementScore</code>. The placement prioritizer selects
+<code>AddOnPlacementScore</code> CR by this name.</li>
+<li><code>scoreName</code> defines the score name inside <code>AddOnPlacementScore</code>.
+<code>AddOnPlacementScore</code> contains a list of score name and score value,
+ScoreName specifies the score to be used by the prioritizer.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>weight</code> defines the weight of the prioritizer. The value must be ranged in
+[-10,10].
+Each prioritizer will calculate an integer score of a cluster in the range
+of [-100, 100]. The final score of a cluster will be sum(weight *
+prioritizer_score).
+A higher weight indicates that the prioritizer weights more in the cluster
+selection, while 0 weight indicates that the prioritizer is disabled. A
+negative weight indicates wanting to select the last ones.</li>
+</ul>
+</li>
+</ul>
+<p>A slice of <code>PlacementDecision</code> will be created by placement controller in the
+same namespace, each with a label of
+<code>cluster.open-cluster-management.io/placement={placement name}</code>.
+<code>PlacementDecision</code> contains the results of the cluster selection as seen in the
+following examples.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1beta1
+<span style="color:#66d9ef">kind</span>: PlacementDecision
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">labels</span>:
+    <span style="color:#66d9ef">cluster.open-cluster-management.io/placement</span>: placement1
+  <span style="color:#66d9ef">name</span>: placement1-decision<span style="color:#ae81ff">-1</span>
+  <span style="color:#66d9ef">namespace</span>: default
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">decisions</span>:
+    - <span style="color:#66d9ef">clusterName</span>: cluster1
+    - <span style="color:#66d9ef">clusterName</span>: cluster2
+    - <span style="color:#66d9ef">clusterName</span>: cluster3
+</code></pre></div><p><code>PlacementDecision</code> can be consumed by another operand to decide how the
+workload should be placed in multiple clusters.</p>
+<h2 id="extensible-scheduling">Extensible scheduling</h2>
+<p>In placement resource based scheduling, in some cases the prioritizer needs
+extra data (more than the default value provided by ManagedCluster) to calculate
+the score of the managed cluster. For example, schedule the clusters based on
+cpu or memory usage data of the clusters fetched from a monitoring system.</p>
+<p>So we provide a new API <code>AddOnPlacementScore</code> to support a more extensible way
+to schedule based on customized scores.</p>
+<ul>
+<li>As a user, as mentioned in the above section, can specify the score in
+placement yaml to select clusters.</li>
+<li>As a score provider, a 3rd party controller could run on either hub or managed
+cluster, to maintain the lifecycle of <code>AddOnPlacementScore</code> and update score
+into it.</li>
+</ul>
+<p>Refer to the
+<a href="https://github.com/open-cluster-management-io/enhancements/blob/main/enhancements/sig-architecture/32-extensiblescheduling/32-extensiblescheduling.md">enhancements</a>
+to learn more.</p>
+<h2 id="future-work">Future work</h2>
+<p>In addition to selecting cluster by predicates, we are still working on other
+advanced features including</p>
+<ul>
+<li><a href="https://github.com/open-cluster-management-io/community/issues/49">Various workload spread
+policies</a>.</li>
+<li><a href="https://github.com/open-cluster-management-io/community/issues/52">Usage based
+scheduling</a>.</li>
+</ul>
+
+</div>
+<script type="text/javascript" src="/clipboard-copy.js"></script>
+</div>
+        </div>
+        <div class="row"><nav class="ocm navbar navbar-expand-lg navbar-dark py-3">
+  <div class="container-fluid flex-wrap flex-md-nowrap">
+    <div class="text-light">&copy; 2021 Open Cluster Management Authors. The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see <a href="https://www.linuxfoundation.org/trademark-usage/" target="_blank" style="color: #f8f9fa;">Trademark Usage</a></div>
+  </div>
+</nav>
+<script type="text/javascript" src="/lang.js"></script>
+</div>
+    </div>
+</body>
+</html>
