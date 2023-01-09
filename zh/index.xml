@@ -179,7 +179,8 @@ The ManagedClusterSet and ManagedClusterSetBinding API v1alpha1 version will no 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://open-cluster-management.io/zh/concepts/placement/</guid>
-      <description>Overall Select clusters in ManagedClusterSet  Predicates  Label/Claim selection Taints/Tolerations   Prioritizers  Score-based prioritizer Extensible scheduling     PlacementDecisions Troubleshooting  Check the Placement conditions Check the Placement events   Future work     API-CHANGE NOTE: The Placement and PlacementDecision API v1alpha1 version will no longer be served in in OCM v0.9.0.
+      <description>Overall Select clusters in ManagedClusterSet  Predicates  Label/Claim selection Taints/Tolerations   Prioritizers  Score-based prioritizer Extensible scheduling     PlacementDecisions Troubleshooting  Check the Placement conditions Check the Placement events   Future work     API-CHANGE NOTE:
+The Placement and PlacementDecision API v1alpha1 version will no longer be served in OCM v0.9.0.
  Migrate manifests and API clients to use the Placement and PlacementDecision API v1beta1 version, available since OCM v0.</description>
     </item>
     
@@ -200,7 +201,7 @@ The ManagedClusterSet and ManagedClusterSetBinding API v1alpha1 version will no 
       
       <guid>http://open-cluster-management.io/zh/developer-guides/addon/</guid>
       <description>This page is a developer guide about how to build an OCM add-on using addon-framework.
-   Overview Write your first add-on  Implement the addon manager Deploy the add-on manager on your hub cluster  RBAC of the addon manager ClusterManagementAddOn   Enable the add-on for a managed cluster. Disable the add-on for a managed cluster What’s the next   Add-on agent configurations  Monitor addon healthiness Automatic installation Register your add-on   Build an addon using helm charts or raw manifests.</description>
+   Overview Write your first add-on  Implement the addon manager Deploy the add-on manager on your hub cluster  RBAC of the addon manager ClusterManagementAddOn   Enable the add-on for a managed cluster. Disable the add-on for a managed cluster What’s the next   Add-on agent configurations  Monitor addon healthiness Automatic installation Register your add-on Add your add-on agent supported configurations   Build an addon using helm charts or raw manifests.</description>
     </item>
     
     <item>
