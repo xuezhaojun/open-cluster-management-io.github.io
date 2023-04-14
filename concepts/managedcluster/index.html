@@ -131,13 +131,13 @@
                     <a class="navlink" href="/getting-started/quick-start">Quick Start</a>
                 </li>
                 <li>
-                    <a class="navlink" href="/getting-started/core">Core Components</a>
+                    <a class="navlink" href="/getting-started/installation">Installation</a>
                     <ul class="collapse">
                         <li>
-                            <a class="navlink" href="/getting-started/core/cluster-manager">Cluster Manager</a>
+                            <a class="navlink" href="/getting-started/installation/start-the-control-plane">Start the Control Plane</a>
                         </li>
                         <li>
-                            <a class="navlink" href="/getting-started/core/register-cluster">Klusterlet Agent</a>
+                            <a class="navlink" href="/getting-started/installation/register-a-cluster">Register a Cluster</a>
                         </li>
                     </ul>
                 </li>
@@ -199,7 +199,7 @@
                 </li>
                 <li>
                     <a class="navlink" href="/scenarios/integration-with-argocd">Integration with Argo CD</a>
-                </li>                
+                </li>
                 <li>
                     <a class="navlink" href="/scenarios/pushing-kube-api-requests">Pushing Kube API Requests to the Managed Clusters</a>
                 </li>
@@ -281,7 +281,7 @@
 <h2 id="what-is-managedcluster">What is ManagedCluster?</h2>
 <p><code>ManagedCluster</code> is a cluster scoped API in the hub cluster representing the
 registered or pending-for-acceptance Kubernetes clusters in OCM. The
-<a href="https://open-cluster-management.io/getting-started/core/register-cluster/">klusterlet agent</a>
+<a href="https://open-cluster-management.io/getting-started/installation/register-a-cluster/">klusterlet agent</a>
 working in the managed cluster is expected to actively maintain/refresh the
 status of the corresponding <code>ManagedCluster</code> resource on the hub cluster.
 On the other hand, removing the <code>ManagedCluster</code> from the hub cluster indicates
@@ -314,7 +314,7 @@ command-line tool <code>clusteradm</code> to manage the whole registration proce
 <p>When we&rsquo;re registering a new cluster into OCM, the registration agent will be
 starting by creating an unaccepted <code>ManagedCluster</code> into the hub cluster along
 with a temporary <a href="https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/">CertificateSigningRequest (CSR)</a>
-resource. The cluster will be accepted by the hub control plan, if the
+resource. The cluster will be accepted by the hub control plane, if the
 following requirements is meet:</p>
 <ul>
 <li>The CSR is approved and signed by any certificate provider setting filling
