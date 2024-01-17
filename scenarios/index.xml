@@ -61,6 +61,26 @@ In this article, we want to show you how to integrate Argo CD with OCM and deplo
     </item>
     
     <item>
+      <title>Manage a cluster with multiple hubs</title>
+      <link>https://open-cluster-management.io/scenarios/manage-cluster-with-multiple-hubs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://open-cluster-management.io/scenarios/manage-cluster-with-multiple-hubs/</guid>
+      <description>Normally an Open Cluster Management (OCM) hub manages multiple managed clusters and a cluster only registers to one OCM hub. While there might be some user scenarios, where a single cluster may want to join more than one OCM hub as a managed cluster, including:
+ In an organization, each department may setup an OCM hub to manage clusters owned by this department, and all clusters are managed by a central OCM hub owned by IT department to enforce organization wide security policies.</description>
+    </item>
+    
+    <item>
+      <title>Migrate workload with placement</title>
+      <link>https://open-cluster-management.io/scenarios/migrate-workload-with-placement/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://open-cluster-management.io/scenarios/migrate-workload-with-placement/</guid>
+      <description>The Placement API is used to dynamically select a set of ManagedCluster in one or multiple ManagedClusterSets so that the workloads can be deployed to these clusters.
+If you define a valid Placement, the placement controller generates a corresponding PlacementDecision with the selected clusters listed in the status. As an end-user, you can parse the selected clusters and then operate on the target clusters. You can also integrate a high-level workload orchestrator with the PlacementDecision to leverage its scheduling capabilities.</description>
+    </item>
+    
+    <item>
       <title>Pushing Kubernetes API requests to the managed clusters</title>
       <link>https://open-cluster-management.io/scenarios/pushing-kube-api-requests/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -68,6 +88,15 @@ In this article, we want to show you how to integrate Argo CD with OCM and deplo
       <guid>https://open-cluster-management.io/scenarios/pushing-kube-api-requests/</guid>
       <description>By following the instructions in this document, an OCM hub admin will be able to &amp;ldquo;push&amp;rdquo; Kubernetes API requests to the managed clusters. The benefit of using this method for &amp;ldquo;pushing&amp;rdquo; requests in OCM is that we don&amp;rsquo;t need to explicitly configure any API endpoint for the managed clusters or provide any client credentials as preparation. We just need to enable/install the following OCM addons:
  Cluster-Proxy: Setting up the konnectivity tunnels between the hub cluster and the managed clusters so the hub cluster can connect/access the managed cluster from anywhere.</description>
+    </item>
+    
+    <item>
+      <title>Register a cluster to hub through proxy server</title>
+      <link>https://open-cluster-management.io/scenarios/register-cluster-through-proxy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://open-cluster-management.io/scenarios/register-cluster-through-proxy/</guid>
+      <description>When registering a cluster to an Open Cluster Management (OCM) hub, there is a network requirement for the managed cluster. It must be able to reach the hub cluster. Sometimes the managed cluster cannot directly connect to the hub cluster. For example, the hub cluster is in a public cloud, and the managed cluster is in a private cloud environment behind firewalls. The communications out of the private cloud can only go through a HTTP or HTTPS proxy server.</description>
     </item>
     
   </channel>

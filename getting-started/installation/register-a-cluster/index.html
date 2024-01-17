@@ -29,12 +29,12 @@
 
 <input id="current-lang" type="hidden" value="en">
 
-<header class="navbar navbar-expand-md navbar-dark bd-navbar">
+<header class="navbar navbar-expand-lg navbar-dark bd-navbar">
   <nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top">
-    <div class="container-fluid flex-wrap flex-md-nowrap">
+    <div class="container-fluid flex-wrap flex-lg-nowrap">
       <a href="/" class="navbar-brand">
         <img src="/ocm.svg" alt="" width="30" height="24" class="align-text-top">
-        Open Cluster Management
+        <span>Open Cluster Management</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
         <span class="navbar-toggler-icon"></span>
@@ -86,7 +86,7 @@
 </header>
 </div>
         <div class="row subject-padding">
-            <div class="col-2 col-md-3 padding-none sidebar-bgc">
+            <div class="col-lg-2 col-md-3 padding-none sidebar-bgc">
 
 
 
@@ -100,7 +100,7 @@
     <ul class="components">
         <li id="concepts">
             <a class="navlink" href="/concepts">Concepts</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/concepts/architecture">Architecture</a>
                 </li>
@@ -111,13 +111,16 @@
                     <a class="navlink" href="/concepts/managedcluster">ManagedCluster</a>
                 </li>
                 <li>
-                    <a class="navlink" href="/concepts/manifestwork">ManifestWork</a>
-                </li>
-                <li>
                     <a class="navlink" href="/concepts/managedclusterset">ManagedClusterSet</a>
                 </li>
                 <li>
                     <a class="navlink" href="/concepts/placement">Placement</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/concepts/manifestwork">ManifestWork</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/concepts/manifestworkreplicaset">ManifestWorkReplicaSet</a>
                 </li>
                 <li>
                     <a class="navlink" href="/concepts/addon">Add-ons</a>
@@ -125,11 +128,14 @@
                 <li>
                     <a class="navlink" href="/concepts/policy">Policy</a>
                 </li>
+                <li>
+                    <a class="navlink" href="/concepts/multicluster-controlplane">Multicluster Control Plane</a>
+                </li>
             </ul>
         </li>
         <li id="getting-started">
             <a class="navlink" href="/getting-started">Getting Started</a>
-            <ul class="collapse">
+            <ul class="collapse show">
                 <li>
                     <a class="navlink" href="/getting-started/quick-start">Quick Start</a>
                 </li>
@@ -146,7 +152,7 @@
                 </li>
                 <li>
                     <a class="navlink" href="/getting-started/integration">Add-ons and Integrations</a>
-                    <ul class="collapse">
+                    <ul class="collapse ">
                         <li>
                             <a class="navlink" href="/getting-started/integration/app-lifecycle">Application lifecycle management</a>
                         </li>
@@ -166,7 +172,7 @@
                 </li>
                 <li>
                     <a class="navlink" href="/getting-started/administration">Administration</a>
-                    <ul class="collapse">
+                    <ul class="collapse ">
                         <li>
                             <a class="navlink" href="/getting-started/administration/upgrading">Upgrading</a>
                         </li>
@@ -179,7 +185,7 @@
         </li>
         <li id="developer-guides">
             <a class="navlink" href="/developer-guides">Developer Guides</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/developer-guides/addon">Add-on Developer Guide</a>
                 </li>
@@ -190,12 +196,15 @@
         </li>
         <li id="scenarios">
             <a class="navlink" href="/scenarios">Scenarios</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/scenarios/deploy-kubernetes-resources">Deploy Kubernetes Resources</a>
                 </li>
                 <li>
                     <a class="navlink" href="/scenarios/distribute-workload-with-placement">Distribute Workload With Placement</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/scenarios/migrate-workload-with-placement">Migrate Workload With Placement</a>
                 </li>
                 <li>
                     <a class="navlink" href="/scenarios/extend-multicluster-scheduling-capabilities">Extend Multicluster Scheduling Capabilities</a>
@@ -207,13 +216,19 @@
                     <a class="navlink" href="/scenarios/integration-with-argocd">Integration with Argo CD</a>
                 </li>
                 <li>
+                    <a class="navlink" href="/scenarios/manage-cluster-with-multiple-hubs">Manage a cluster with multiple hubs</a>
+                </li>
+                <li>
                     <a class="navlink" href="/scenarios/pushing-kube-api-requests">Pushing Kube API Requests to the Managed Clusters</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/scenarios/register-cluster-through-proxy">Register a cluster to hub through proxy server</a>
                 </li>
             </ul>
         </li>
         <li id="community">
             <a class="navlink" href="/community">Community</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/community/releases">Releases</a>
                 </li>
@@ -247,7 +262,7 @@
 </nav>
 <script type="text/javascript" src="/sidebar.js"></script>
 </div>
-            <div class="col-10 col-md-9 padding-none">
+            <div class="col-lg-10 col-md-9 padding-none">
 <div id="content">
     <h1>Register a cluster</h1>
     <p>After the cluster manager is installed on the hub cluster, you need to install the klusterlet agent on another cluster so that it can be registered and managed by the hub cluster.</p>
@@ -258,7 +273,12 @@
   <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents"><ul>
         <li><a href="#prerequisite">Prerequisite</a></li>
         <li><a href="#install-clusteradm-cli-tool">Install clusteradm CLI tool</a></li>
-        <li><a href="#bootstrap-a-klusterlet">Bootstrap a klusterlet</a></li>
+        <li><a href="#bootstrap-a-klusterlet">Bootstrap a klusterlet</a>
+          <ul>
+            <li><a href="#bootstrap-a-klusterlet-in-hosted-modeoptional">Bootstrap a klusterlet in hosted mode(Optional)</a></li>
+            <li><a href="#bootstrap-a-klusterlet-in-singleton-mode">Bootstrap a klusterlet in singleton mode</a></li>
+          </ul>
+        </li>
         <li><a href="#accept-the-join-request-and-verify">Accept the join request and verify</a></li>
         <li><a href="#apply-a-manifestwork">Apply a Manifestwork</a>
           <ul>
@@ -320,6 +340,87 @@ clusteradm join <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --wait <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --cluster-name <span style="color:#e6db74">&#34;cluster1&#34;</span> <span style="color:#ae81ff">\ </span>  <span style="color:#75715e"># Or other arbitrary unique name</span>
     --context <span style="color:#e6db74">${</span>CTX_MANAGED_CLUSTER<span style="color:#e6db74">}</span>
+</code></pre></div></div></div>
+
+<h3 id="bootstrap-a-klusterlet-in-hosted-modeoptional">Bootstrap a klusterlet in hosted mode(Optional)</h3>
+<p>Using the above command, the klusterlet components(registration-agent and work-agent) will be deployed on the managed
+cluster, it is mandatory to expose the hub cluster to the managed cluster. We provide an option for running the
+klusterlet components outside the managed cluster, for example, on the hub cluster(hosted mode).</p>
+<p>The hosted mode deploying is till in experimental stage, consider to use it only when:</p>
+<ul>
+<li>want to reduce the footprints of the managed cluster.</li>
+<li>do not want to expose the hub cluster to the managed cluster directly</li>
+</ul>
+<p>In hosted mode, the cluster where the klusterlet is running is called the hosting cluster. Running the following command
+to the hosting cluster to register the managed cluster to the hub.</p>
+<ul class="nav nav-tabs" id="clusteradm-join" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" data-bs-target="#clusteradm-join-0" class="nav-link active" id="clusteradm-join-0-tab" role="tab" aria-controls="clusteradm-join-0" aria-selected="true">kind</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" data-bs-target="#clusteradm-join-1" class="nav-link" id="clusteradm-join-1-tab" role="tab" aria-controls="clusteradm-join-1">k3s, openshift 4.X</button>
+		</li></ul>
+<div class="tab-content" id="clusteradm-join"><div id="clusteradm-join-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="clusteradm-join-0-tab">
+
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># NOTE for KinD clusters:</span>
+<span style="color:#75715e">#  1. hub is KinD, use the parameter: --force-internal-endpoint-lookup</span>
+<span style="color:#75715e">#  2. managed is Kind, --managed-cluster-kubeconfig should be internal: `kind get kubeconfig --name managed --internal`</span>
+clusteradm join <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --hub-token &lt;your token data&gt; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --hub-apiserver &lt;your hub cluster endpoint&gt; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --wait <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --cluster-name <span style="color:#e6db74">&#34;cluster1&#34;</span> <span style="color:#ae81ff">\ </span>   <span style="color:#75715e"># Or other arbitrary unique name</span>
+    --mode hosted <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --managed-cluster-kubeconfig &lt;your managed cluster kubeconfig&gt; <span style="color:#ae81ff">\ </span>   <span style="color:#75715e"># Should be an internal kubeconfig</span>
+    --force-internal-endpoint-lookup <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --context &lt;your hosting cluster context&gt;
+</code></pre></div></div>
+  <div id="clusteradm-join-1" class="tab-pane fade" role="tabpanel" aria-labelledby="clusteradm-join-1-tab">
+
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">clusteradm join <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --hub-token &lt;your token data&gt; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --hub-apiserver &lt;your hub cluster endpoint&gt; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --wait <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --cluster-name <span style="color:#e6db74">&#34;cluster1&#34;</span> <span style="color:#ae81ff">\ </span>   <span style="color:#75715e"># Or other arbitrary unique name</span>
+    --mode hosted <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --managed-cluster-kubeconfig &lt;your managed cluster kubeconfig&gt; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --context &lt;your hosting cluster context&gt;
+</code></pre></div></div></div>
+
+<h3 id="bootstrap-a-klusterlet-in-singleton-mode">Bootstrap a klusterlet in singleton mode</h3>
+<p>To reduce the footprint of agent in the managed cluster, singleton mode is introduced since <code>v0.12.0</code>.
+In the singleton mode, the work and registration agent will be run as a single pod in the managed
+cluster.</p>
+<p><strong>Note:</strong> to run klusterlet in singleton mode, you must have a clusteradm version equal or higher than
+<code>v0.12.0</code></p>
+<ul class="nav nav-tabs" id="clusteradm-join" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" data-bs-target="#clusteradm-join-0" class="nav-link active" id="clusteradm-join-0-tab" role="tab" aria-controls="clusteradm-join-0" aria-selected="true">kind</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" data-bs-target="#clusteradm-join-1" class="nav-link" id="clusteradm-join-1-tab" role="tab" aria-controls="clusteradm-join-1">k3s, openshift 4.X</button>
+		</li></ul>
+<div class="tab-content" id="clusteradm-join"><div id="clusteradm-join-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="clusteradm-join-0-tab">
+
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># NOTE: For KinD clusters use the parameter: --force-internal-endpoint-lookup</span>
+clusteradm join <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --hub-token &lt;your token data&gt; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --hub-apiserver &lt;your hub cluster endpoint&gt; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --wait <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --cluster-name <span style="color:#e6db74">&#34;cluster1&#34;</span> <span style="color:#ae81ff">\ </span>   <span style="color:#75715e"># Or other arbitrary unique name</span>
+    --singleton <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --force-internal-endpoint-lookup <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --context <span style="color:#e6db74">${</span>CTX_MANAGED_CLUSTER<span style="color:#e6db74">}</span>
+</code></pre></div></div>
+  <div id="clusteradm-join-1" class="tab-pane fade" role="tabpanel" aria-labelledby="clusteradm-join-1-tab">
+
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">clusteradm join <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --hub-token &lt;your token data&gt; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --hub-apiserver &lt;your hub cluster endpoint&gt; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --wait <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --cluster-name <span style="color:#e6db74">&#34;cluster1&#34;</span> <span style="color:#ae81ff">\ </span>  <span style="color:#75715e"># Or other arbitrary unique name</span>
+    --singleton <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --context <span style="color:#e6db74">${</span>CTX_MANAGED_CLUSTER<span style="color:#e6db74">}</span>
 </code></pre></div></div></div>
 
 <h2 id="accept-the-join-request-and-verify">Accept the join request and verify</h2>

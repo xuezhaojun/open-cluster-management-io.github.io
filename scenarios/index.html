@@ -29,12 +29,12 @@
 
 <input id="current-lang" type="hidden" value="en">
 
-<header class="navbar navbar-expand-md navbar-dark bd-navbar">
+<header class="navbar navbar-expand-lg navbar-dark bd-navbar">
   <nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top">
-    <div class="container-fluid flex-wrap flex-md-nowrap">
+    <div class="container-fluid flex-wrap flex-lg-nowrap">
       <a href="/" class="navbar-brand">
         <img src="/ocm.svg" alt="" width="30" height="24" class="align-text-top">
-        Open Cluster Management
+        <span>Open Cluster Management</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
         <span class="navbar-toggler-icon"></span>
@@ -100,7 +100,7 @@
     <ul class="components">
         <li id="concepts">
             <a class="navlink" href="/concepts">Concepts</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/concepts/architecture">Architecture</a>
                 </li>
@@ -111,13 +111,16 @@
                     <a class="navlink" href="/concepts/managedcluster">ManagedCluster</a>
                 </li>
                 <li>
-                    <a class="navlink" href="/concepts/manifestwork">ManifestWork</a>
-                </li>
-                <li>
                     <a class="navlink" href="/concepts/managedclusterset">ManagedClusterSet</a>
                 </li>
                 <li>
                     <a class="navlink" href="/concepts/placement">Placement</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/concepts/manifestwork">ManifestWork</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/concepts/manifestworkreplicaset">ManifestWorkReplicaSet</a>
                 </li>
                 <li>
                     <a class="navlink" href="/concepts/addon">Add-ons</a>
@@ -125,11 +128,14 @@
                 <li>
                     <a class="navlink" href="/concepts/policy">Policy</a>
                 </li>
+                <li>
+                    <a class="navlink" href="/concepts/multicluster-controlplane">Multicluster Control Plane</a>
+                </li>
             </ul>
         </li>
         <li id="getting-started">
             <a class="navlink" href="/getting-started">Getting Started</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/getting-started/quick-start">Quick Start</a>
                 </li>
@@ -146,7 +152,7 @@
                 </li>
                 <li>
                     <a class="navlink" href="/getting-started/integration">Add-ons and Integrations</a>
-                    <ul class="collapse">
+                    <ul class="collapse ">
                         <li>
                             <a class="navlink" href="/getting-started/integration/app-lifecycle">Application lifecycle management</a>
                         </li>
@@ -166,7 +172,7 @@
                 </li>
                 <li>
                     <a class="navlink" href="/getting-started/administration">Administration</a>
-                    <ul class="collapse">
+                    <ul class="collapse ">
                         <li>
                             <a class="navlink" href="/getting-started/administration/upgrading">Upgrading</a>
                         </li>
@@ -179,7 +185,7 @@
         </li>
         <li id="developer-guides">
             <a class="navlink" href="/developer-guides">Developer Guides</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/developer-guides/addon">Add-on Developer Guide</a>
                 </li>
@@ -190,12 +196,15 @@
         </li>
         <li id="scenarios">
             <a class="navlink" href="/scenarios">Scenarios</a>
-            <ul class="collapse">
+            <ul class="collapse show">
                 <li>
                     <a class="navlink" href="/scenarios/deploy-kubernetes-resources">Deploy Kubernetes Resources</a>
                 </li>
                 <li>
                     <a class="navlink" href="/scenarios/distribute-workload-with-placement">Distribute Workload With Placement</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/scenarios/migrate-workload-with-placement">Migrate Workload With Placement</a>
                 </li>
                 <li>
                     <a class="navlink" href="/scenarios/extend-multicluster-scheduling-capabilities">Extend Multicluster Scheduling Capabilities</a>
@@ -207,13 +216,19 @@
                     <a class="navlink" href="/scenarios/integration-with-argocd">Integration with Argo CD</a>
                 </li>
                 <li>
+                    <a class="navlink" href="/scenarios/manage-cluster-with-multiple-hubs">Manage a cluster with multiple hubs</a>
+                </li>
+                <li>
                     <a class="navlink" href="/scenarios/pushing-kube-api-requests">Pushing Kube API Requests to the Managed Clusters</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/scenarios/register-cluster-through-proxy">Register a cluster to hub through proxy server</a>
                 </li>
             </ul>
         </li>
         <li id="community">
             <a class="navlink" href="/community">Community</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/community/releases">Releases</a>
                 </li>
@@ -327,7 +342,46 @@
       <li>
       
         <span>
+          <a href="/scenarios/manage-cluster-with-multiple-hubs/" class="gdoc-toc__entry">Manage a cluster with multiple hubs</a>
+        </span>
+      
+
+      
+      
+      </li>
+      
+      
+      
+      <li>
+      
+        <span>
+          <a href="/scenarios/migrate-workload-with-placement/" class="gdoc-toc__entry">Migrate workload with placement</a>
+        </span>
+      
+
+      
+      
+      </li>
+      
+      
+      
+      <li>
+      
+        <span>
           <a href="/scenarios/pushing-kube-api-requests/" class="gdoc-toc__entry">Pushing Kubernetes API requests to the managed clusters</a>
+        </span>
+      
+
+      
+      
+      </li>
+      
+      
+      
+      <li>
+      
+        <span>
+          <a href="/scenarios/register-cluster-through-proxy/" class="gdoc-toc__entry">Register a cluster to hub through proxy server</a>
         </span>
       
 

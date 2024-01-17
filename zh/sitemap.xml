@@ -10,10 +10,6 @@
     </url>
     
     <url>
-        <loc>https://open-cluster-management.io/zh/getting-started/installation/start-the-control-plane</loc>
-    </url>
-    
-    <url>
         <loc>https://open-cluster-management.io/zh/scenarios/deploy-kubernetes-resources</loc>
     </url>
     
@@ -31,6 +27,22 @@
     
     <url>
         <loc>https://open-cluster-management.io/zh/scenarios/integration-with-argocd</loc>
+    </url>
+    
+    <url>
+        <loc>https://open-cluster-management.io/zh/scenarios/manage-cluster-with-multiple-hubs</loc>
+    </url>
+    
+    <url>
+        <loc>https://open-cluster-management.io/zh/scenarios/migrate-workload-with-placement</loc>
+    </url>
+    
+    <url>
+        <loc>https://open-cluster-management.io/zh/scenarios/register-cluster-through-proxy</loc>
+    </url>
+    
+    <url>
+        <loc>https://open-cluster-management.io/zh/getting-started/installation/start-the-control-plane</loc>
     </url>
     
     <url>
@@ -54,10 +66,6 @@
     </url>
     
     <url>
-        <loc>https://open-cluster-management.io/zh/concepts/clusterclaim</loc>
-    </url>
-    
-    <url>
         <loc>https://open-cluster-management.io/zh/getting-started/installation/register-a-cluster</loc>
     </url>
     
@@ -66,27 +74,19 @@
     </url>
     
     <url>
-        <loc>https://open-cluster-management.io/zh/concepts/managedcluster</loc>
-    </url>
-    
-    <url>
-        <loc>https://open-cluster-management.io/zh/concepts/managedclusterset</loc>
-    </url>
-    
-    <url>
         <loc>https://open-cluster-management.io/zh/getting-started/installation</loc>
     </url>
     
     <url>
-        <loc>https://open-cluster-management.io/zh/concepts/manifestwork</loc>
-    </url>
-    
-    <url>
-        <loc>https://open-cluster-management.io/zh/concepts/placement</loc>
+        <loc>https://open-cluster-management.io/zh/concepts/clusterclaim</loc>
     </url>
     
     <url>
         <loc>https://open-cluster-management.io/zh/scenarios</loc>
+    </url>
+    
+    <url>
+        <loc>https://open-cluster-management.io/zh/concepts/managedcluster</loc>
     </url>
     
     <url>
@@ -98,7 +98,7 @@
     </url>
     
     <url>
-        <loc>https://open-cluster-management.io/zh/concepts/addon</loc>
+        <loc>https://open-cluster-management.io/zh/concepts/managedclusterset</loc>
     </url>
     
     <url>
@@ -114,7 +114,7 @@
     </url>
     
     <url>
-        <loc>https://open-cluster-management.io/zh/concepts/policy</loc>
+        <loc>https://open-cluster-management.io/zh/concepts/placement</loc>
     </url>
     
     <url>
@@ -138,7 +138,19 @@
     </url>
     
     <url>
-        <loc>https://open-cluster-management.io/zh/getting-started/integration/policy-framework</loc>
+        <loc>https://open-cluster-management.io/zh/concepts/manifestwork</loc>
+    </url>
+    
+    <url>
+        <loc>https://open-cluster-management.io/zh/concepts/manifestworkreplicaset</loc>
+    </url>
+    
+    <url>
+        <loc>https://open-cluster-management.io/zh/concepts/addon</loc>
+    </url>
+    
+    <url>
+        <loc>https://open-cluster-management.io/zh/concepts/policy</loc>
     </url>
     
     <url>
@@ -146,11 +158,35 @@
     </url>
     
     <url>
+        <loc>https://open-cluster-management.io/zh/getting-started/integration/policy-framework</loc>
+    </url>
+    
+    <url>
+        <loc>https://open-cluster-management.io/zh/concepts/multicluster-controlplane</loc>
+    </url>
+    
+    <url>
+        <loc>https://open-cluster-management.io/zh/getting-started/integration/policy-controllers/configuration-policy</loc>
+    </url>
+    
+    <url>
+        <loc>https://open-cluster-management.io/zh/getting-started/integration/policy-controllers/gatekeeper</loc>
+    </url>
+    
+    <url>
         <loc>https://open-cluster-management.io/zh</loc>
     </url>
     
     <url>
+        <loc>https://open-cluster-management.io/zh/blog/addon-rollout</loc>
+    </url>
+    
+    <url>
         <loc>https://open-cluster-management.io/zh/blog/extend-multicluster-scheduling-capabilities</loc>
+    </url>
+    
+    <url>
+        <loc>https://open-cluster-management.io/zh/blog/addon-introduction</loc>
     </url>
     
     <url>
@@ -220,5 +256,11 @@
     </url>
     <url>
         <loc>http://open-cluster-management.io/multicluster-controlplane?go-get=1</loc>
+    </url>
+    <url>
+        <loc>http://open-cluster-management.io/ocm?go-get=1</loc>
+    </url>
+    <url>
+        <loc>http://open-cluster-management.io/sdk-go?go-get=1</loc>
     </url>
 </urlset>

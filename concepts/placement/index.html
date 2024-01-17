@@ -29,12 +29,12 @@
 
 <input id="current-lang" type="hidden" value="en">
 
-<header class="navbar navbar-expand-md navbar-dark bd-navbar">
+<header class="navbar navbar-expand-lg navbar-dark bd-navbar">
   <nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top">
-    <div class="container-fluid flex-wrap flex-md-nowrap">
+    <div class="container-fluid flex-wrap flex-lg-nowrap">
       <a href="/" class="navbar-brand">
         <img src="/ocm.svg" alt="" width="30" height="24" class="align-text-top">
-        Open Cluster Management
+        <span>Open Cluster Management</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
         <span class="navbar-toggler-icon"></span>
@@ -86,7 +86,7 @@
 </header>
 </div>
         <div class="row subject-padding">
-            <div class="col-2 col-md-3 padding-none sidebar-bgc">
+            <div class="col-lg-2 col-md-3 padding-none sidebar-bgc">
 
 
 
@@ -100,7 +100,7 @@
     <ul class="components">
         <li id="concepts">
             <a class="navlink" href="/concepts">Concepts</a>
-            <ul class="collapse">
+            <ul class="collapse show">
                 <li>
                     <a class="navlink" href="/concepts/architecture">Architecture</a>
                 </li>
@@ -111,13 +111,16 @@
                     <a class="navlink" href="/concepts/managedcluster">ManagedCluster</a>
                 </li>
                 <li>
-                    <a class="navlink" href="/concepts/manifestwork">ManifestWork</a>
-                </li>
-                <li>
                     <a class="navlink" href="/concepts/managedclusterset">ManagedClusterSet</a>
                 </li>
                 <li>
                     <a class="navlink" href="/concepts/placement">Placement</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/concepts/manifestwork">ManifestWork</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/concepts/manifestworkreplicaset">ManifestWorkReplicaSet</a>
                 </li>
                 <li>
                     <a class="navlink" href="/concepts/addon">Add-ons</a>
@@ -125,11 +128,14 @@
                 <li>
                     <a class="navlink" href="/concepts/policy">Policy</a>
                 </li>
+                <li>
+                    <a class="navlink" href="/concepts/multicluster-controlplane">Multicluster Control Plane</a>
+                </li>
             </ul>
         </li>
         <li id="getting-started">
             <a class="navlink" href="/getting-started">Getting Started</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/getting-started/quick-start">Quick Start</a>
                 </li>
@@ -146,7 +152,7 @@
                 </li>
                 <li>
                     <a class="navlink" href="/getting-started/integration">Add-ons and Integrations</a>
-                    <ul class="collapse">
+                    <ul class="collapse ">
                         <li>
                             <a class="navlink" href="/getting-started/integration/app-lifecycle">Application lifecycle management</a>
                         </li>
@@ -166,7 +172,7 @@
                 </li>
                 <li>
                     <a class="navlink" href="/getting-started/administration">Administration</a>
-                    <ul class="collapse">
+                    <ul class="collapse ">
                         <li>
                             <a class="navlink" href="/getting-started/administration/upgrading">Upgrading</a>
                         </li>
@@ -179,7 +185,7 @@
         </li>
         <li id="developer-guides">
             <a class="navlink" href="/developer-guides">Developer Guides</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/developer-guides/addon">Add-on Developer Guide</a>
                 </li>
@@ -190,12 +196,15 @@
         </li>
         <li id="scenarios">
             <a class="navlink" href="/scenarios">Scenarios</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/scenarios/deploy-kubernetes-resources">Deploy Kubernetes Resources</a>
                 </li>
                 <li>
                     <a class="navlink" href="/scenarios/distribute-workload-with-placement">Distribute Workload With Placement</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/scenarios/migrate-workload-with-placement">Migrate Workload With Placement</a>
                 </li>
                 <li>
                     <a class="navlink" href="/scenarios/extend-multicluster-scheduling-capabilities">Extend Multicluster Scheduling Capabilities</a>
@@ -207,13 +216,19 @@
                     <a class="navlink" href="/scenarios/integration-with-argocd">Integration with Argo CD</a>
                 </li>
                 <li>
+                    <a class="navlink" href="/scenarios/manage-cluster-with-multiple-hubs">Manage a cluster with multiple hubs</a>
+                </li>
+                <li>
                     <a class="navlink" href="/scenarios/pushing-kube-api-requests">Pushing Kube API Requests to the Managed Clusters</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/scenarios/register-cluster-through-proxy">Register a cluster to hub through proxy server</a>
                 </li>
             </ul>
         </li>
         <li id="community">
             <a class="navlink" href="/community">Community</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/community/releases">Releases</a>
                 </li>
@@ -247,7 +262,7 @@
 </nav>
 <script type="text/javascript" src="/sidebar.js"></script>
 </div>
-            <div class="col-10 col-md-9 padding-none">
+            <div class="col-lg-10 col-md-9 padding-none">
 <div id="content">
     <h1>Placement</h1>
     <!-- spellchecker-disable -->
@@ -272,11 +287,17 @@
             </li>
           </ul>
         </li>
-        <li><a href="#placementdecisions">PlacementDecisions</a></li>
+        <li><a href="#placementdecisions">PlacementDecisions</a>
+          <ul>
+            <li><a href="#decision-strategy">Decision strategy</a></li>
+            <li><a href="#rollout-strategy">Rollout Strategy</a></li>
+          </ul>
+        </li>
         <li><a href="#troubleshooting">Troubleshooting</a>
           <ul>
             <li><a href="#check-the-placement-conditions">Check the <code>Placement</code> conditions</a></li>
             <li><a href="#check-the-placement-events">Check the <code>Placement</code> events</a></li>
+            <li><a href="#debug">Debug</a></li>
           </ul>
         </li>
         <li><a href="#future-work">Future work</a></li>
@@ -386,7 +407,7 @@ ManagedClusters with matching taints.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1beta1
 <span style="color:#66d9ef">kind</span>: Placement
 <span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: placement
+  <span style="color:#66d9ef">name</span>: placement1
   <span style="color:#66d9ef">namespace</span>: ns1
 <span style="color:#66d9ef">spec</span>:
   <span style="color:#66d9ef">tolerations</span>:
@@ -417,7 +438,7 @@ be transferred to another available managed cluster after 5 minutes.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1alpha1
 <span style="color:#66d9ef">kind</span>: Placement
 <span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: placement
+  <span style="color:#66d9ef">name</span>: placement1
   <span style="color:#66d9ef">namespace</span>: ns1
 <span style="color:#66d9ef">spec</span>:
   <span style="color:#66d9ef">tolerations</span>:
@@ -462,7 +483,7 @@ time or <code>TolerationSeconds</code> added time.</li>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1beta1
 <span style="color:#66d9ef">kind</span>: Placement
 <span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: placement
+  <span style="color:#66d9ef">name</span>: placement1
   <span style="color:#66d9ef">namespace</span>: ns1
 <span style="color:#66d9ef">spec</span>:
   <span style="color:#66d9ef">numberOfClusters</span>: <span style="color:#ae81ff">1</span>
@@ -479,7 +500,7 @@ time or <code>TolerationSeconds</code> added time.</li>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1beta1
 <span style="color:#66d9ef">kind</span>: Placement
 <span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: placement
+  <span style="color:#66d9ef">name</span>: placement1
   <span style="color:#66d9ef">namespace</span>: ns1
 <span style="color:#66d9ef">spec</span>:
   <span style="color:#66d9ef">numberOfClusters</span>: <span style="color:#ae81ff">1</span>
@@ -504,7 +525,7 @@ weight, they will be weighted more in the results, and make placement sensitive 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1beta1
 <span style="color:#66d9ef">kind</span>: Placement
 <span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: placement
+  <span style="color:#66d9ef">name</span>: placement1
   <span style="color:#66d9ef">namespace</span>: ns1
 <span style="color:#66d9ef">spec</span>:
   <span style="color:#66d9ef">numberOfClusters</span>: <span style="color:#ae81ff">2</span>
@@ -630,6 +651,125 @@ be paginated with its page index as the name&rsquo;s suffix to avoid &ldquo;too 
 object&rdquo; issue from the underlying Kubernetes API framework.</p>
 <p><code>PlacementDecision</code> can be consumed by another operand to decide how the
 workload should be placed in multiple clusters.</p>
+<h3 id="decision-strategy">Decision strategy</h3>
+<p>The <code>decisionStrategy</code> section of <code>Placement</code> can be used to divide the created
+<code>PlacementDecision</code> into groups and define the number of clusters per decision group.</p>
+<p>Assume an environment has 310 clusters, 10 of which have the label prod-canary-west
+and 10 have the label prod-canary-east. The following example demonstrates how to group
+the clusters with the labels prod-canary-west and prod-canary-east into 2 groups, and
+group the remaining clusters into groups with a maximum of 150 clusters each.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1beta1
+<span style="color:#66d9ef">kind</span>: Placement
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: placement1
+  <span style="color:#66d9ef">namespace</span>: default
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">clusterSets</span>:
+    - global
+  <span style="color:#66d9ef">decisionStrategy</span>:
+    <span style="color:#66d9ef">groupStrategy</span>:
+      <span style="color:#66d9ef">clustersPerDecisionGroup</span>: <span style="color:#ae81ff">150</span>
+      <span style="color:#66d9ef">decisionGroups</span>:
+      - <span style="color:#66d9ef">groupName</span>: prod-canary-west
+        <span style="color:#66d9ef">groupClusterSelector</span>:
+          <span style="color:#66d9ef">labelSelector</span>:
+            <span style="color:#66d9ef">matchExpressions</span>:
+              - <span style="color:#66d9ef">key</span>: prod-canary-west
+                <span style="color:#66d9ef">operator</span>: Exists
+      - <span style="color:#66d9ef">groupName</span>: prod-canary-east
+        <span style="color:#66d9ef">groupClusterSelector</span>:
+          <span style="color:#66d9ef">labelSelector</span>:
+            <span style="color:#66d9ef">matchExpressions</span>:
+              - <span style="color:#66d9ef">key</span>: prod-canary-east
+                <span style="color:#66d9ef">operator</span>: Exists
+</code></pre></div><p>The <code>decisionStrategy</code> section includes the following fields:</p>
+<ul>
+<li><code>decisionGroups</code>: Represents a list of predefined groups to put decision results.
+Decision groups will be constructed based on the <code>decisionGroups</code> field at first.
+The clusters not included in the <code>decisionGroups</code> will be divided to other decision
+groups afterwards. Each decision group should not have the number of clusters
+larger than the <code>clustersPerDecisionGroup</code>.
+<ul>
+<li><code>groupName</code>: Represents the name to be added as the value of label key <code>cluster.open-cluster-management.io/decision-group-name</code>
+of created <code>PlacementDecisions</code>.</li>
+<li><code>groupClusterSelector</code>: Defines the label selector to select clusters subset by label.</li>
+</ul>
+</li>
+<li><code>clustersPerDecisionGroup</code>: A specific number or percentage of the total selected
+clusters. The specific number will divide the placementDecisions to decisionGroups,
+the max number of clusters in each group equal to that specific number.</li>
+</ul>
+<p>With this decision strategy defined, the placement status will list the group result,
+including the decision group name and index, the cluster count, and the corresponding
+<code>PlacementDecision</code> names.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">status</span>:
+...
+  <span style="color:#66d9ef">decisionGroups</span>:
+  - <span style="color:#66d9ef">clusterCount</span>: <span style="color:#ae81ff">10</span>
+    <span style="color:#66d9ef">decisionGroupIndex</span>: <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">decisionGroupName</span>: prod-canary-west
+    <span style="color:#66d9ef">decisions</span>:
+    - placement1-decision<span style="color:#ae81ff">-1</span>
+  - <span style="color:#66d9ef">clusterCount</span>: <span style="color:#ae81ff">10</span>
+    <span style="color:#66d9ef">decisionGroupIndex</span>: <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">decisionGroupName</span>: prod-canary-east
+    <span style="color:#66d9ef">decisions</span>:
+    - placement1-decision<span style="color:#ae81ff">-2</span>
+  - <span style="color:#66d9ef">clusterCount</span>: <span style="color:#ae81ff">150</span>
+    <span style="color:#66d9ef">decisionGroupIndex</span>: <span style="color:#ae81ff">2</span>
+    <span style="color:#66d9ef">decisionGroupName</span>: <span style="color:#e6db74">&#34;&#34;</span>
+    <span style="color:#66d9ef">decisions</span>:
+    - placement1-decision<span style="color:#ae81ff">-3</span>
+    - placement1-decision<span style="color:#ae81ff">-4</span>
+  - <span style="color:#66d9ef">clusterCount</span>: <span style="color:#ae81ff">140</span>
+    <span style="color:#66d9ef">decisionGroupIndex</span>: <span style="color:#ae81ff">3</span>
+    <span style="color:#66d9ef">decisionGroupName</span>: <span style="color:#e6db74">&#34;&#34;</span>
+    <span style="color:#66d9ef">decisions</span>:
+    - placement1-decision<span style="color:#ae81ff">-5</span>
+    - placement1-decision<span style="color:#ae81ff">-6</span>
+  <span style="color:#66d9ef">numberOfSelectedClusters</span>: <span style="color:#ae81ff">310</span>
+</code></pre></div><p>The <code>PlacementDecision</code> will have labels <code>cluster.open-cluster-management.io/decision-group-name</code>
+and <code>cluster.open-cluster-management.io/decision-group-index</code> to indicate which group name
+and group index it belongs to.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1beta1
+<span style="color:#66d9ef">kind</span>: PlacementDecision
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">labels</span>:
+    <span style="color:#66d9ef">cluster.open-cluster-management.io/placement</span>: placement1
+    <span style="color:#66d9ef">cluster.open-cluster-management.io/decision-group-index</span>: <span style="color:#e6db74">&#34;0&#34;</span>
+    <span style="color:#66d9ef">cluster.open-cluster-management.io/decision-group-name</span>: prod-canary-west
+  <span style="color:#66d9ef">name</span>: placement1-decision<span style="color:#ae81ff">-1</span>
+  <span style="color:#66d9ef">namespace</span>: default
+...
+</code></pre></div><h3 id="rollout-strategy">Rollout Strategy</h3>
+<p>Rollout Strategy <a href="https://github.com/open-cluster-management-io/api/blob/main/cluster/v1alpha1/types_rolloutstrategy.go">API</a> facilitate the use of placement decision strategy with OCM workload applier APIs such as Policy, <a href="https://open-cluster-management.io/concepts/addon/#add-on-rollout-strategy">Addon</a> and <a href="https://open-cluster-management.io/concepts/manifestworkreplicaset/">ManifestWorkReplicaSet</a> to apply workloads.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    <span style="color:#66d9ef">placements</span>:
+    - <span style="color:#66d9ef">name</span>: placement-example
+      <span style="color:#66d9ef">rolloutStrategy</span>:
+        <span style="color:#66d9ef">type</span>: Progressive
+        <span style="color:#66d9ef">progressive</span>:
+          <span style="color:#66d9ef">mandatoryDecisionGroups</span>:
+          - <span style="color:#66d9ef">groupName</span>: <span style="color:#e6db74">&#34;prod-canary-west&#34;</span>
+          - <span style="color:#66d9ef">groupName</span>: <span style="color:#e6db74">&#34;prod-canary-east&#34;</span>
+          <span style="color:#66d9ef">maxConcurrency</span>: <span style="color:#ae81ff">25</span>%
+          <span style="color:#66d9ef">minSuccessTime</span>: 5m
+          <span style="color:#66d9ef">progressDeadline</span>: 10m
+          <span style="color:#66d9ef">maxFailures</span>: <span style="color:#ae81ff">2</span>
+</code></pre></div><p>The Rollout Strategy API provides three rollout types;</p>
+<ol>
+<li><strong>All</strong>: means apply the workload to all clusters in the decision groups at once.</li>
+<li><strong>Progressive</strong>: means apply the workload to the selected clusters progressively per cluster. The workload will not be applied to the next cluster unless one of the current applied clusters reach the successful state and haven&rsquo;t breached the MaxFailures configuration.</li>
+<li><strong>ProgressivePerGroup</strong>: means apply the workload to decisionGroup clusters progressively per group. The workload will not be applied to the next decisionGroup unless all clusters in the current group reach the successful state and haven&rsquo;t breached the MaxFailures configuration.</li>
+</ol>
+<p>The RollOut Strategy API also provides rollOut config to fine-tune the workload apply progress based on the use-case requirements;</p>
+<ol>
+<li><strong>MinSuccessTime</strong>: defined in seconds/minutes/hours for how long workload applier controller will wait from the beginning of the rollout to proceed with the next rollout, assuming a successful state had been reached and MaxFailures hasn&rsquo;t been breached. Default is 0 meaning the workload applier proceeds immediately after a successful state is reached.</li>
+<li><strong>ProgressDeadline</strong>: defined in seconds/minutes/hours for how long workload applier controller will wait until the workload reaches a successful state in the spoke cluster.
+If the workload does not reach a successful state after ProgressDeadline, the controller will stop waiting and workload will be treated as &ldquo;timeout&rdquo; and be counted into MaxFailures. Once the MaxFailures is breached, the rollout will stop. Default value is &ldquo;None&rdquo;, meaning the workload applier will wait for a successful state indefinitely.</li>
+<li><strong>MaxFailures</strong>: defined as the maximum percentage of or number of clusters that can fail in order to proceed with the rollout. Fail means the cluster has a failed status or timeout status (does not reach successful status after ProgressDeadline). Once the MaxFailures is breached, the rollout will stop. Default is 0 means that no failures are tolerated.</li>
+<li><strong>MaxConcurrency</strong>: is the max number of clusters to deploy workload concurrently. The MaxConcurrency can be defined only in case rollout type is progressive.</li>
+<li><strong>MandatoryDecisionGroups</strong>: is a list of decision groups to apply the workload first. If mandatoryDecisionGroups not defined the decision group index is considered to apply the workload in groups by order. The MandatoryDecisionGroups can be defined only in case rollout type is progressive or progressivePerGroup.</li>
+</ol>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>If no <code>PlacementDecision</code> generated after you creating <code>Placement</code>, you can run below commands to troubleshoot.</p>
 <h3 id="check-the-placement-conditions">Check the <code>Placement</code> conditions</h3>
@@ -682,7 +822,19 @@ Events:
   Normal  ScoreUpdate     3s      placementController  cluster1:200 cluster2:145 cluster3:189 cluster4:200
 </code></pre></div><p>The placement controller will give a score to each filtered <code>ManagedCluster</code> and generate an event for it. When the cluster score
 changes, a new event will generate. You can check the score of each cluster in the <code>Placment</code> events, to know why some clusters with lower score are not selected.</p>
-<h2 id="future-work">Future work</h2>
+<h3 id="debug">Debug</h3>
+<p>If you want to know more defails of how clusters are selected in each step, can following below step to access the debug endpoint.</p>
+<p>Create clusterrole &ldquo;debugger&rdquo; to access debug path and bind this to anonymous user.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl create clusterrole <span style="color:#e6db74">&#34;debugger&#34;</span> --verb<span style="color:#f92672">=</span>get --non-resource-url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/debug/*&#34;</span>
+kubectl create clusterrolebinding debugger --clusterrole<span style="color:#f92672">=</span>debugger --user<span style="color:#f92672">=</span>system:anonymous
+</code></pre></div><p>Export placement 8443 port to local.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl port-forward -n open-cluster-management-hub deploy/cluster-manager-placement-controller 8443:8443
+</code></pre></div><p>Curl below url to debug one specific placement.</p>
+<pre><code>curl -k  https://127.0.0.1:8443/debug/placements/&lt;namespace&gt;/&lt;name&gt;
+</code></pre><p>For example, the environment has a <code>Placement</code> named placement1 in default namespace, which selects 2 <code>ManagedClusters</code>, the output would be like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -k  https://127.0.0.1:8443/debug/placements/default/placement1
+<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;filteredPiplieResults&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;Predicate&#34;</span>,<span style="color:#e6db74">&#34;filteredClusters&#34;</span>:<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;cluster1&#34;</span>,<span style="color:#e6db74">&#34;cluster2&#34;</span><span style="color:#f92672">]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;Predicate,TaintToleration&#34;</span>,<span style="color:#e6db74">&#34;filteredClusters&#34;</span>:<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;cluster1&#34;</span>,<span style="color:#e6db74">&#34;cluster2&#34;</span><span style="color:#f92672">]}]</span>,<span style="color:#e6db74">&#34;prioritizeResults&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;Balance&#34;</span>,<span style="color:#e6db74">&#34;weight&#34;</span>:1,<span style="color:#e6db74">&#34;scores&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;cluster1&#34;</span>:100,<span style="color:#e6db74">&#34;cluster2&#34;</span>:100<span style="color:#f92672">}}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;Steady&#34;</span>,<span style="color:#e6db74">&#34;weight&#34;</span>:1,<span style="color:#e6db74">&#34;scores&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;cluster1&#34;</span>:100,<span style="color:#e6db74">&#34;cluster2&#34;</span>:100<span style="color:#f92672">}}]}</span>
+</code></pre></div><h2 id="future-work">Future work</h2>
 <p>In addition to selecting cluster by predicates, we are still working on other
 advanced features including</p>
 <ul>
