@@ -72,11 +72,13 @@ menu:
 
 params:
   # TODO: @xuezhaojun add versions when netlify build is ready
-  # versions:
-  #   - version: main
-  #     url: 'https://open-cluster-management.io'
-  #   - version: v0.14.0
-  #     url: 'https://v0-14-0.open-cluster-management.io'
+  versions:
+    - version: main
+      githubbranch: main
+      url: 'https://ocm-preview.netlify.app/'
+    - version: v0.14.0
+      githubbranch: v0.14.0
+      url: 'https://v0-14-0--ocm-preview.netlify.app/'
 
   taxonomy:
     # set taxonomyCloud = [] to hide taxonomy clouds
@@ -103,11 +105,11 @@ params:
   # The version number for the version of the docs represented in this doc set.
   # Used in the "version-banner" partial to display a version number for the
   # current doc set.
-  version: 0.0
+  version: "v0.14.0"
 
   # A link to latest version of the docs. Used in the "version-banner" partial to
   # point people to the main doc site.
-  url_latest_version: https://open-cluster-management.io
+  url_latest_version: https://ocm-preview.netlify.app/
 
   # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
   github_repo: https://github.com/open-cluster-management-io/open-cluster-management-io.github.io
